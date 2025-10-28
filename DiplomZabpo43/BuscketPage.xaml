@@ -1,0 +1,115 @@
+﻿<Page x:Class="DiplomZabpo43.BuscketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomZabpo43"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="710"
+      Title="BuscketPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Grid.Row="1">
+                <Button x:Name="btnBackAut" Height="32" Width="37" HorizontalAlignment="Left" Background="White" BorderThickness="0,1" Click="btnBackAut_Click">
+                    <StackPanel Orientation="Vertical" Height="28" Width="35" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.213"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </StackPanel.RenderTransform>
+                        <fa:ImageAwesome Icon="MailReply" Spin="False" SpinDuration="10" Foreground="Black" Width="27" Height="25"/>
+                    </StackPanel>
+                </Button>
+                <!-- Заголовок страницы -->
+                <TextBlock Text="Корзина" FontSize="24" Margin="10"/>
+
+                <!-- Список товаров в корзине -->
+                <ListBox Grid.Row="1" x:Name="charactersListBox" HorizontalContentAlignment="Stretch" Margin="0,0,0,0" Width="480" Height="550">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Первый столбец -->
+                                    <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                <Button Content="+" Click="GetAdd_Click" Height="20" Width="20" Margin="5,5,5,5"/>
+                                                <Label Content="{Binding Count_Med}" x:Name="CountTovar"/>
+
+                                                <Button Content="-" Click="GetDel_Click" Height="20" Width="20" Margin="5,5,5,5"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="Цена: "></Label>
+                                                <Label x:Name="ItogSum" Content="{Binding TotalPrice}" Width="182"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- Второй столбец -->
+                                    <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform">
+                                        <Border BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0" Grid.RowSpan="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="83"/>
+                                                    <ColumnDefinition Width="220"/>
+                                                </Grid.ColumnDefinitions>
+                                                <!-- Первый столбец -->
+                                                <StackPanel Grid.Column="0" Orientation="Vertical" Height="auto">
+                                                    <Image x:Name="imgMedikament" Source="{Binding Image_med}" Stretch="UniformToFill" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100"/>
+                                                </StackPanel>
+                                                <!-- Второй столбец -->
+                                                <StackPanel Grid.Column="1" Orientation="Vertical">
+                                                    <TextBlock Text="{Binding Name_product}" Margin="5" Foreground="Black"/>
+                                                    <TextBlock Text="{Binding Brand_name, StringFormat=Бренд: \{0\}}" Margin="5" Foreground="Black"/>
+                                                    <TextBlock Text="{Binding Form, StringFormat=Форма: \{0\}}" Margin="5" Foreground="Black"/>
+                                                    <TextBlock Text="{Binding Manufac_name, StringFormat=Имя производителя: \{0\}}" Margin="5" Foreground="Black"/>
+                                                    <TextBlock Text="{Binding Price, StringFormat=Цена: \{0\} руб.}" Margin="5" Foreground="Black"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </Viewbox>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Vertical" Height="530">
+                    <StackPanel Orientation="Horizontal" Height="103" HorizontalAlignment="Center">
+                        <Label Content="Очистить корзину" Height="29" VerticalAlignment="Bottom"/>
+                        <Button x:Name="CloseBus" Margin="0,0,0,5" Height="15" Width="15" Style="{StaticResource MenuButton}" Click="CloseBus_Click" VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Vertical">
+                                <fa:ImageAwesome Icon="Close" Spin="False" SpinDuration="10" Foreground="Black" Width="5" Height="15"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="230" Margin="0,0,0,0" Height="154">
+                    <StackPanel>
+                        <Label  Content="Сумма: "></Label>
+                        <Label x:Name="ItogSum" Content="{Binding FullPrice}" Width="182"></Label>
+                    </StackPanel>
+
+                    <Button Height="28" Width="186" Content="Оформить заказ" Click="CreateOrd_Click"    Style="{StaticResource LoginButtonStyle}" 
+></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

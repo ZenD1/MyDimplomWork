@@ -1,0 +1,118 @@
+﻿<Page x:Class="DiplomZabpo43.RegistrPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomZabpo43"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="710"
+      Title="RegistrPage">
+
+    <Border Width="500" 
+         Height="600"
+         Background="White"
+         CornerRadius="6">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15"
+                           Direction="-90" 
+                           RenderingBias="Quality" 
+                           ShadowDepth="2" 
+                           Color="Gray" />
+        </Border.Effect>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Margin="20">
+            <!-- Поле Имя -->
+            <!-- Поле Фамилия -->
+            <!-- Поле Имя -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Black" Text="Имя" Width="33" TextAlignment="Right" VerticalAlignment="Center" Margin="10" />
+                <TextBox x:Name="txtFirstName" Width="150" Height="25"/>
+                <TextBlock Foreground="Black" Text="Фамилия" Width="57" TextAlignment="Right" VerticalAlignment="Center" Margin="10" />
+                <TextBox x:Name="txtLastName" Width="150" Height="25"/>
+            </StackPanel>
+
+            <!-- Поле Почта -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="208">
+                <TextBlock Foreground="Black" Text="Почта" Width="34" TextAlignment="Right" VerticalAlignment="Center" Margin="10" />
+                <TextBox x:Name="tbtDr" Width="150" Height="25"/>
+            </StackPanel>
+            <!-- Поле Номер телефона -->
+            <StackPanel Orientation="Horizontal" Width="457">
+                <StackPanel Orientation="Vertical" Width="259">
+                    <TextBlock Foreground="Black" Text="Номер телефона" Width="94" TextAlignment="Right" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="tbtTel" Width="146" Height="25" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="181">
+                    <TextBlock Foreground="Black" Text="Укажите дату рождения" Width="135" TextAlignment="Right" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Right"/>
+                    <DatePicker x:Name="dtpPick2" Width="150" Height="31" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="456">
+                <!-- Поле Пароль -->
+                <StackPanel Orientation="Vertical" Width="196">
+                    <TextBlock Foreground="Black" Text="Придумайте Пароль" Width="114" TextAlignment="Right" Margin="10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="tbtTel2" Width="150" Height="25" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="243">
+                    <TextBlock Foreground="Black" Text="Повторите пароль" Width="116" TextAlignment="Right" VerticalAlignment="Center" Margin="10" Height="22" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="tbtTel1" Width="150" Height="25" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <!-- Поле Повторите пароль -->
+            </StackPanel>
+            <!-- Поле Укажите дату рождения -->
+
+            <!-- Кнопка Зарегистрироваться -->
+            <Button x:Name="btnAdd" Content="Зарегистрироваться" Width="150" Height="34" Click="btnAdd_Click" Margin="5,10,10,5">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}"
+                                         CornerRadius="16">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!-- Кнопка Вернуться на страницу авторизации -->
+            <Button x:Name="btnBack" Content="Вернуться" Width="223" Height="34" Click="btnBack_Click" Margin="5,10,10,5">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}"
+                                         CornerRadius="16">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Border>
+</Page>

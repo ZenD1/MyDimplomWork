@@ -1,0 +1,167 @@
+﻿<Page x:Class="DiplomZabpo43.SetMedikamentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomZabpo43"
+       xmlns:fa="http://schemas.fontawesome.io/icons/"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="710"
+      Title="SetMedikamentPage">
+
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Width="700">
+        <Button x:Name="Btn_back" Height="32" Width="37" HorizontalAlignment="Left" Background="White" BorderThickness="0,1" Click="Btn_back_Click" Margin="0,10,0,599">
+            <StackPanel Orientation="Vertical" Height="28" Width="35" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.213"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <fa:ImageAwesome Icon="MailReply" Spin="False" SpinDuration="10" Foreground="Black" Width="27" Height="25"/>
+                <TextBlock x:Name="lalvba" Text="" FontSize="10" Margin="0,0,0,0" HorizontalAlignment="Center" Height="14" Width="49"/>
+            </StackPanel>
+        </Button>
+        <StackPanel Orientation="Vertical">
+            <Label Width="200" Content="Добавьте новый медикамент: " HorizontalAlignment="Center"></Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Категория: " Width="120"/>
+                    <ComboBox x:Name="categoryLabel" Width="150" SelectionChanged="categoryLabel_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Наименование: " Width="120"/>
+                    <TextBox x:Name="nameLabel" Width="150" TextChanged="nameLabel_TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Бренд: " Width="120"/>
+                    <ComboBox x:Name="brandLabel" Width="150" SelectionChanged="brandLabel_SelectionChanged"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Производитель: " Width="120"/>
+                    <ComboBox x:Name="manufacturerLabel" Width="150" SelectionChanged="manufacturerLabel_SelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Форма: " Width="120"/>
+                    <TextBox x:Name="formLabel" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Страна: " Width="120"/>
+                    <ComboBox x:Name="countryLabel" Width="150" SelectionChanged="countryLabel_SelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Дозировка: " Width="120"/>
+                    <ComboBox x:Name="dosaLabel" Width="150" SelectionChanged="dosaLabel_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Подподкатегория: "  Width="120"/>
+                    <ComboBox x:Name="subsubcategoryLabel" Width="150" SelectionChanged="subsubcategoryLabel_SelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Подкатегория: "  Width="120"/>
+                    <ComboBox x:Name="subcategoryLabel" Width="150" SelectionChanged="subcategoryLabel_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Условия хранения: " Width="120"/>
+                    <TextBox x:Name="storageConditionLabel" Width="150"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Рекомендации: "  Width="120"/>
+                    <TextBox x:Name="recommendationLabel" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <Label Content="Дата изготовления: "  Width="120"/>
+                    <DatePicker x:Name="manufactureDatePicker" Width="150"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <Label Content="Цена: "/>
+                <TextBox x:Name="priceLabel" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" HorizontalAlignment="Left">
+                    <Image x:Name="imgProfile" Width="150" Height="150"/>
+
+                    <Button x:Name="buton_select" Content="Выбрать файл" Width="100" Margin="10" Height="38" Click="Btn_selectImage"/>
+                    <Button Content="Добавить медикамент" Click="AddMed_Click" Height="42" Width="136" VerticalAlignment="Top"/>
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Height="96">
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="64" VerticalAlignment="Top">
+                            <Label Content="Добавить категорию: " Width="150"/>
+                            <TextBox x:Name="categoryAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddCategory_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="96" VerticalAlignment="Top">
+                            <Label Content="Добавить подкатегорию: " Width="150"/>
+                            <ComboBox x:Name="categoryComboBox" Width="150" />
+                            <TextBox x:Name="subcategoryAddTextBox" Width="150" Height="20"/>
+                            <Button Content="Добавить" Click="AddSubcategory_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="64" VerticalAlignment="Top">
+                            <Label Content="Добавить бренд: " Width="150"/>
+                            <TextBox x:Name="brandAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddBrand_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="93">
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="64" VerticalAlignment="Top">
+                            <Label Content="Добавить производителя: " Width="150"/>
+                            <TextBox x:Name="manufacturerAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddManufacturer_Click"></Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="83" VerticalAlignment="Top">
+                            <Label Content="Добавить подподкатегорию: " Width="150"/>
+                            <ComboBox x:Name="subcategoryComboBox" Width="150" Height="18" />
+                            <TextBox x:Name="subsubcategoryAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddSubsubcategory_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="64" VerticalAlignment="Top">
+                            <Label Content="Добавить страну: " Width="150"/>
+                            <TextBox x:Name="countryAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddCountry_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Vertical" Margin="0,10,0,0" Height="64" VerticalAlignment="Top">
+                            <Label Content="Добавить дозировку: " Width="150"/>
+                            <TextBox x:Name="dosaAddTextBox" Width="150"/>
+                            <Button Content="Добавить" Click="AddDosa_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Height="100" Width="694">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Выберите аптеку" Width="120"/>
+                    <ComboBox x:Name="ComboApteka" Width="180"/>
+                    <Label Content="Выберите медикамент" Width="120"/>
+                    <ComboBox x:Name="ComboMed" Width="213"/>
+                </StackPanel>
+                <Label Content="Укажите количество: " Width="210"/>
+                <TextBox x:Name="QuantityTextBox" Width="210"/>
+                <Button Height="18" Width="210" Content="Изменить" Margin="0,5,0,0" Click="UpdateQuantity_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

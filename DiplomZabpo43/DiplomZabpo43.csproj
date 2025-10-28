@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64F8C0FD-5525-4BBE-8A07-C137E00C72F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DiplomZabpo43</RootNamespace>
+    <AssemblyName>DiplomZabpo43</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BuscketPage.xaml.cs">
+      <DependentUpon>BuscketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryItems.xaml.cs">
+      <DependentUpon>CategoryItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="classes\AptekaAddress.cs" />
+    <Compile Include="classes\BascMedList.cs" />
+    <Compile Include="classes\BoolToVisibilityConverter.cs" />
+    <Compile Include="classes\Category.cs" />
+    <Compile Include="classes\Comment.cs" />
+    <Compile Include="classes\Connection.cs" />
+    <Compile Include="classes\DatabaseHelper.cs" />
+    <Compile Include="classes\EmptyTextValidationRule.cs" />
+    <Compile Include="classes\ImageConverter.cs" />
+    <Compile Include="classes\InverseBoolToVisibilityConverter.cs" />
+    <Compile Include="classes\Medikament.cs" />
+    <Compile Include="classes\MedTechniqueCollection.cs" />
+    <Compile Include="classes\SelectItemList.cs" />
+    <Compile Include="classes\Subcategory.cs" />
+    <Compile Include="classes\Subsubcategory.cs" />
+    <Compile Include="classes\User.cs" />
+    <Compile Include="filters\BrandList.cs" />
+    <Compile Include="filters\CategoryList.cs" />
+    <Compile Include="filters\CountryList.cs" />
+    <Compile Include="filters\DosaList.cs" />
+    <Compile Include="filters\ManufacList.cs" />
+    <Compile Include="filters\SubcategoryList.cs" />
+    <Compile Include="filters\SubsubcategoryList.cs" />
+    <Compile Include="HomePageUser.xaml.cs">
+      <DependentUpon>HomePageUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetailsPage.xaml.cs">
+      <DependentUpon>ItemDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LOADPAGE.xaml.cs">
+      <DependentUpon>LOADPAGE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrifilePage.xaml.cs">
+      <DependentUpon>PrifilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrPage.xaml.cs">
+      <DependentUpon>RegistrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretPage.xaml.cs">
+      <DependentUpon>SecretPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetMedikamentPage.xaml.cs">
+      <DependentUpon>SetMedikamentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetRecieptPage.xaml.cs">
+      <DependentUpon>SetRecieptPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetUserPage.xaml.cs">
+      <DependentUpon>SetUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpisokPage.xaml.cs">
+      <DependentUpon>SpisokPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuscketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CategoryItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePageUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LOADPAGE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PrifilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetMedikamentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetRecieptPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpisokPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="image\" />
+    <Folder Include="video\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="unnamed.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

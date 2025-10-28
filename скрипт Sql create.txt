@@ -1,0 +1,180 @@
+--	CREATE TABLE Role_table (
+--    role_id INT PRIMARY KEY IDENTITY,
+--    role_name VARCHAR(255) NOT NULL
+--);
+
+--CREATE TABLE User_table (
+--    user_id INT PRIMARY KEY IDENTITY,
+--    user_role INT NOT NULL,
+--    email VARCHAR(255) NOT NULL,
+--    phone VARCHAR(255) NOT NULL,
+--    [password] VARCHAR(255) NOT NULL,
+--    birthday DATETIME NOT NULL,
+--    FOREIGN KEY (user_role) REFERENCES Role_table(role_id)
+--);
+
+
+
+--CREATE TABLE Country (
+--    country_id INT PRIMARY KEY IDENTITY,
+--    name_country VARCHAR(255) NOT NULL
+--);
+
+
+CREATE TABLE [dbo].[Rating](
+    [rating_id] int IDENTITY primary key,
+    values_rat int,
+	name_rating varchar(50)
+)
+
+
+--CREATE TABLE Comment (
+--    comment_id INT PRIMARY KEY IDENTITY,
+--    usercom_id INT NOT NULL,
+--    medikament INT NOT NULL,
+--    content_com VARCHAR(255) NOT NULL,
+      [raiting] [int] NULL ,
+	FOREIGN KEY ([raiting]) REFERENCES [Rating]([rating_id]),
+--    FOREIGN KEY (usercom_id) REFERENCES User_table(user_id),
+--    FOREIGN KEY (medikament) REFERENCES Medikaments(product_id)
+    
+--);
+
+--CREATE TABLE City (
+--    city_id INT PRIMARY KEY IDENTITY,
+--    city_name VARCHAR(255) NOT NULL
+--);
+
+
+
+--CREATE TABLE [Availability] (
+--    availability_id INT PRIMARY KEY IDENTITY,
+--    medikaments INT NOT NULL,
+--    [count] VARCHAR(255) NOT NULL,
+--    apteka INT NOT NULL,
+--    FOREIGN KEY (medikaments) REFERENCES Medikaments(product_id),
+--    FOREIGN KEY (apteka) REFERENCES Apteka(apteka_id) 
+--);
+
+--CREATE TABLE Apteka (
+--    apteka_id INT PRIMARY KEY IDENTITY,
+--    adres_apteki_id INT NOT NULL,
+--    FOREIGN KEY (adres_apteki_id) REFERENCES Adres(adres_id)
+--);
+
+CREATE TABLE med_content (
+    content_id INT PRIMARY KEY IDENTITY,
+    content_name VARCHAR(255) NOT NULL
+);
+
+
+--CREATE TABLE Manufacturer (
+--    manefac_id INT PRIMARY KEY IDENTITY,
+--    manufac_name VARCHAR(255) NOT NULL
+--);
+
+--CREATE TABLE Brand (
+--    brand_id INT PRIMARY KEY IDENTITY,
+--    brand_name VARCHAR(255) NOT NULL
+--);
+
+create table Reciepts(
+id_recept int identity primary key,
+[user] int foreign key ([user]) references [dbo].[User_table]([user_id]),
+medikament int foreign key (medikament) references [dbo].[Medikaments]([product_id]),
+code varchar(20)
+)
+
+--CREATE TABLE Medikaments (
+--    product_id INT PRIMARY KEY IDENTITY,
+--    name_product VARCHAR(255) NOT NULL,
+--    subsubcategory INT NOT NULL, -- Changed column name
+--    brand INT NOT NULL,
+--    med_content INT NULL,
+--    dosa VARCHAR(255) NULL,
+--    [form] VARCHAR(255) NULL,
+--    manufacturer INT NOT NULL,
+--    healt_date VARCHAR(255) NULL,
+--    country INT NOT NULL,
+--    storage_condition VARCHAR(255) NOT NULL,
+--    contraindications VARCHAR(255) NOT NULL,
+--    price int NOT NULL,
+--    image_med image,
+      dosa_id int foreign key (dosa_id) references [Dosa]([dosa_id]),
+--    FOREIGN KEY (subsubcategory) REFERENCES Subsubcategories(subsubcategory_id), 
+--    FOREIGN KEY (brand) REFERENCES Brand(brand_id),
+--    FOREIGN KEY (manufacturer) REFERENCES Manufacturer(manefac_id),
+--    FOREIGN KEY (country) REFERENCES Country(country_id),
+--    FOREIGN KEY (med_content) REFERENCES med_content(content_id)
+--);
+
+
+
+--CREATE TABLE Adres (
+--    adres_id INT PRIMARY KEY IDENTITY,
+--    city INT NOT NULL,
+--    adres VARCHAR(255) NOT NULL,
+--    country INT NOT NULL,
+--    FOREIGN KEY (city) REFERENCES City(city_id),
+--    FOREIGN KEY (country) REFERENCES Country(country_id)
+--);
+
+
+
+--CREATE TABLE Orders (
+--    order_id INT PRIMARY KEY IDENTITY,
+--    user_id INT NOT NULL,
+--    apteka_id INT NOT NULL,
+--    order_total int NOT NULL,
+--    FOREIGN KEY (user_id) REFERENCES User_table(user_id),
+--    FOREIGN KEY (apteka_id) REFERENCES Apteka(apteka_id) -- Изменил ссылку на apteka_id
+--);
+
+CREATE TABLE Order_List (
+    order_list_id INT PRIMARY KEY IDENTITY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    count_ord int,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES Medikaments(product_id)
+);
+
+--CREATE TABLE Categories (
+--    category_id INT PRIMARY KEY IDENTITY,
+--    category_name VARCHAR(255) NOT NULL
+--);
+
+--CREATE TABLE Subcategories (
+--    subcategory_id INT PRIMARY KEY IDENTITY,
+--    subcategory_name VARCHAR(255) NOT NULL,
+--    category_id INT NOT NULL,
+--    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+--);
+
+--CREATE TABLE Subsubcategories (
+--    subsubcategory_id INT PRIMARY KEY IDENTITY,
+--    subsubcategory_name VARCHAR(255) NOT NULL,
+--    subcategory_id INT NOT NULL,
+--    FOREIGN KEY (subcategory_id) REFERENCES Subcategories(subcategory_id)
+--);
+CREATE TABLE [dbo].[Dosa](
+    [dosa_id] [int] IDENTITY PRIMARY KEY,
+	[dosa_name] varchar(255)
+);
+
+--CREATE TRIGGER UpdateOrderTotal
+--ON Order_List
+--AFTER INSERT
+--AS
+--BEGIN
+--    -- Обновление суммы заказа в таблице Orders
+--    UPDATE o
+--    SET order_total = (
+--        SELECT SUM(ol.count_ord * m.price) -- Вычисление суммы заказа
+--        FROM Order_List ol
+--        JOIN Medikaments m ON ol.product_id = m.product_id
+--        WHERE ol.order_id = o.order_id -- Фильтрация по соответствующему заказу
+--    )
+--    FROM Orders o
+--    JOIN inserted i ON o.order_id = i.order_id; -- Обновление только для новых вставленных записей
+--EN
